@@ -3,7 +3,7 @@ info:
   version: "0.1.0"
   title: MedicareMojo
 # during dev, should point to your local machine
-host: mysterious-dawn-94705.herokuapp.com
+host: localhost:10010
 # basePath prefixes all resource paths
 basePath: /
 schemes:
