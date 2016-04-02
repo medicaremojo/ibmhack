@@ -3,7 +3,7 @@ info:
   version: "0.1.0"
   title: MedicareMojo
 # during dev, should point to your local machine
-host: localhost:10010
+host: mysterious-dawn-94705.herokuapp.com
 # basePath prefixes all resource paths
 basePath: /
 schemes:
@@ -18,7 +18,7 @@ paths:
     # binds a127 app logic to a route
     x-swagger-router-controller: hello_world
     get:
-      tags: 
+      tags:
         - example
       description: Returns 'Hello' to the caller
       # used as the method name of the controller
@@ -44,7 +44,7 @@ paths:
     # binds a127 app logic to a route
     x-swagger-router-controller: audio_search
     post:
-      tags: 
+      tags:
         - search
       description: Returns top search result
       operationId: audioSearch
@@ -75,7 +75,7 @@ paths:
     # binds a127 app logic to a route
     x-swagger-router-controller: text_search
     post:
-      tags: 
+      tags:
         - search
       description: Returns top search result
       operationId: textSearch
