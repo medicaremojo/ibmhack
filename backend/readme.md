@@ -1,1 +1,3 @@
-## Jeremy can fill this out
+# Node Server API
+
+- Uses Swagger CLI to generate APIs

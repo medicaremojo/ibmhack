@@ -1,0 +1,124 @@
+swagger: "2.0"
+info:
+  version: "0.1.0"
+  title: MedicareMojo
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths
+basePath: /
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /hello:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: hello_world
+    get:
+      tags:
+        - example
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: hello
+      parameters:
+        - name: name
+          in: query
+          description: The name of the person to whom to say hello
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /search/audio:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: audio_search
+    post:
+      tags:
+        - search
+      description: Returns top search result
+      operationId: audioSearch
+      parameters:
+        - name: audioFile
+          in: formData
+          description: Audio of search query
+          required: true
+          type: file
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/AudioSearchResponse"
+        "400":
+          description: Missing or invalid request input
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        "500":
+          description: Internal Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /search/text:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: text_search
+    post:
+      tags:
+        - search
+      description: Returns top search result
+      operationId: textSearch
+      parameters:
+        - name: searchString
+          in: formData
+          description: Search query
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/TextSearchResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  HelloWorldResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  AudioSearchResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  TextSearchResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
