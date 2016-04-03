@@ -1,0 +1,12 @@
+.login-page {
+    background-color: map-get($colors, secondary);
+}
+.login-page .logo {
+  padding: 20px 0;
+  min-height: 200px;
+  text-align: center;
+}
+
+.login-page .logo img {
+  max-width: 150px;
+}

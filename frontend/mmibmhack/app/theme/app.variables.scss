@@ -1,0 +1,61 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files. Setting
+// variables before Ionic's Sass will use these variables rather than
+// Ionic's default Sass variable values. App Shared Sass imports belong
+// in the app.core.scss file and not this file. Sass variables specific
+// to the mode belong in either the app.ios.scss or app.md.scss files.
+
+
+// App Shared Color Variables
+// --------------------------------------------------
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+// Both iOS and MD colors can be further customized if colors
+// are different per mode.
+
+
+// This app's Default Theme
+// ----------------------------------
+
+$colors: (
+  primary:    #DF4236,
+  secondary:  #FEF9F2,
+  danger:     #FC1200,
+  light:      #E5E5EA,
+  dark:       #4A4A4A,
+  favorite:   #419BF9,
+  twitter:    #53ACEB,
+  github:     #000000,
+  instagram:  #235D8D
+) !default;
+
+
+$text-color:                 map-get($colors, dark) !default;
+$paragraph-color:            $text-color !default;
+$link-color:                 map-get($colors, secondary) !default;
+$background-color:           map-get($colors, secondary) !default;
+$subdued-text-color:         map-get($colors, light) !default;
+
+$font-family-base:           -apple-system, "Raleway", "Helvetica Neue", "Roboto", sans-serif !default;
+$font-size-base:             1.4rem !default; // 1.4rem == 14px
+
+$content-padding:            16px !default;
+$content-margin:             16px !default;
+
+$toolbar-background:         map-get($colors, primary) !default;
+$toolbar-border-color:       map-get($colors, secondary) !default;
+$toolbar-text-color:         map-get($colors, secondary) !default;
+$toolbar-active-color:       $link-color !default;
+$toolbar-inactive-color:     map-get($colors, light) !default;
+
+$list-text-color:            $text-color !default;
+$list-background-color:      $background-color !default;
+
+$list-border-color:          #c8c7cc !default;

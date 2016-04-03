@@ -8,6 +8,7 @@ Thumbs.db
 *.tmp
 *.tmp.*
 log.txt
+*devnotes*.txt
 *.sublime-project
 *.sublime-workspace
 .sass-cache/
