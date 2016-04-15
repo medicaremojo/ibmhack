@@ -10,7 +10,9 @@
   "dependencies": {
     "cors": "^2.7.1",
     "express": "^4.12.3",
-    "swagger-express-mw": "^0.1.0"
+    "isomorphic-fetch": "^2.2.1",
+    "swagger-express-mw": "^0.1.0",
+    "watson-developer-cloud": "^1.4.1"
   },
   "devDependencies": {
     "should": "^7.1.0",
