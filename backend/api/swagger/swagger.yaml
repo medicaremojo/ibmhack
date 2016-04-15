@@ -112,10 +112,10 @@ definitions:
         type: string
   TextSearchResponse:
     required:
-      - message
+      - match
     properties:
-      message:
-        type: string
+      match:
+        type: object
   ErrorResponse:
     required:
       - message

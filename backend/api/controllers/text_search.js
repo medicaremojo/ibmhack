@@ -15,8 +15,8 @@ var natural_language_classifier = watson.natural_language_classifier({
 });
 
 function textSearch(req, res) {
-  var question = req.swagger.params.message;
-  
+  var question = req.swagger.params.searchString.value;
+
   natural_language_classifier.classify({
     classifier_id: 'f1704ex55-nlc-4522',
     text: question,
@@ -26,7 +26,9 @@ function textSearch(req, res) {
       } else {
         console.log(JSON.stringify(response, null, 2));
         var bestMatch = questionMatch.vectorToQuestion(response);
-        res.json(bestMatch);
+        res.json({
+          match: bestMatch
+        });
       }
     }
   );
