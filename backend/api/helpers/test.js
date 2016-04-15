@@ -2,7 +2,7 @@
 
 var util = require('util');
 var watson = require('watson-developer-cloud');
-var questionMatch = require('../helpers/questionMatch');
+var questionMatch = require('./questionMatch');
 
 var username = '236ca868-d05c-4a6a-a7d7-5be9cd953a98';
 var password = 'o3IySK8nGypa';
@@ -14,9 +14,7 @@ var natural_language_classifier = watson.natural_language_classifier({
   version: 'v1'
 });
 
-function textSearch(req, res) {
-  var question = req.swagger.params.message;
-  
+function getAnswer(question) {
   natural_language_classifier.classify({
     classifier_id: 'f1704ex55-nlc-4522',
     text: question,
@@ -26,12 +24,11 @@ function textSearch(req, res) {
       } else {
         console.log(JSON.stringify(response, null, 2));
         var bestMatch = questionMatch.vectorToQuestion(response);
-        res.json(bestMatch);
+        console.log(bestMatch);
+        // return bestMatch;
       }
     }
   );
 }
 
-module.exports = {
-  textSearch: textSearch
-};
+getAnswer('What services are provided by Part B?');
