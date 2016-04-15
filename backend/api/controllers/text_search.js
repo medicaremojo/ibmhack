@@ -1,6 +1,7 @@
 'use strict';
 
 var util = require('util');
+var questionMatch = require('../helpers/questionMatch');
 
 module.exports = {
   textSearch: textSearch
